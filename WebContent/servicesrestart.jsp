@@ -13,7 +13,7 @@ import="java.util.Map,
 		com.anwim.microsoft.windows.RunCommand,
 		com.anwim.microsoft.windows.services.RestartServicesCommand,
 		com.anwim.microsoft.windows.services.ListServicesCommand,
-		com.anwim.microsoft.windows.services.ServiceCommand"
+		com.anwim.microsoft.windows.Command"
 %>
 <%
 	try {
