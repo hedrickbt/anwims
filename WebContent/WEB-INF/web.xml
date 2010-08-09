@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+<web-app id="WebApp_ID" version="2.4"
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 	<display-name>anwims</display-name>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
@@ -9,4 +11,29 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
+
+	<!-- Define a security constraint on this application -->
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Entire Application</web-resource-name>
+			<url-pattern>/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<!-- This role is not in the default user directory -->
+			<role-name>manager</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<!-- Define the login configuration for this application -->
+	<login-config>
+		<auth-method>TOMCAT_HEADER_AUTH</auth-method>
+		<!-- <auth-method>BASIC</auth-method>-->
+		<realm-name>Tomcat Manager Application</realm-name>
+	</login-config>
+	<!-- Security roles referenced by this web application -->
+	<security-role>
+		<description>
+    The role that is required to log in to the Manager Application
+  </description>
+		<role-name>manager</role-name>
+	</security-role>
 </web-app>
